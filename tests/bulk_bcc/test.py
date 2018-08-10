@@ -17,10 +17,11 @@ import lattice_cubic
 # the current model
 import model 
 
-a0 = (15.0*2)**(1.0/3.0)# initial guess at lattice constant, cell will be relaxed below
+#a0 = (15.0*2)**(1.0/3.0)# initial guess at lattice constant, cell will be relaxed below
+a0 = 3.17
 
 # set up the a
-bulk = BodyCenteredCubic(symbol='Si', latticeconstant=a0)
+bulk = BodyCenteredCubic(symbol='W', latticeconstant=a0)
 
 (c11, c12, c44, E_vs_V) = lattice_cubic.do_lattice(bulk, elastic=True)
 

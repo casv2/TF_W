@@ -10,7 +10,8 @@
 #     to physical quantities computed by this test
 
 # standard ASE structure generation routines
-from ase.lattice.cubic import Diamond
+#from ase.lattice.cubic import Diamond
+from ase.lattice.cubic import BodyCenteredCubic
 
 import ase.io, sys
 
@@ -23,13 +24,14 @@ from utilities import relax_atoms, relax_atoms_cell
 # the current model
 import model
 
-a0 = 5.44 # initial guess at lattice constant, cell will be relaxed below
-fmax = 0.002 # maximum force following relaxtion [eV/A]
+#a0 = 5.44 # initial guess at lattice constant, cell will be relaxed below
+a0 = 3.17
+fmax = 0.001 # maximum force following relaxtion [eV/A]
 
 # if not hasattr(model, 'bulk_reference'):
 
 # set up the a
-bulk = Diamond(symbol='Si', latticeconstant=a0, directions=[[1,1,0],[-1,1,0],[0,0,1]])
+bulk = BodyCenteredCubic(symbol='W', latticeconstant=a0, directions=[[1,1,0],[-1,1,0],[0,0,1]])
 
 # specify that we will use model.calculator to compute forces, energies and stresses
 bulk.set_calculator(model.calculator)
